@@ -415,4 +415,118 @@ function setActiveLink(index) {
     navLinks[index].classList.add("active");
 }
 
+gsap.registerPlugin(ScrollTrigger);
 
+/* ------------------ RESPONSIVE GSAP ------------------ */
+const mm = gsap.matchMedia();
+
+/* ================= DESKTOP (≥ 769px) ================= */
+mm.add("(min-width: 769px)", () => {
+
+    // Section Titles
+    gsap.utils.toArray(".section-title").forEach(title => {
+        gsap.from(title.children, {
+            scrollTrigger: {
+                trigger: title,
+                start: "top 80%",
+            },
+            y: 80,
+            opacity: 0,
+            stagger: 0.06,
+            duration: 0.6,
+            ease: "power3.out"
+        });
+    });
+
+    // Project Cards
+    gsap.utils.toArray(".project-card").forEach((card, i) => {
+        gsap.from(card, {
+            scrollTrigger: {
+                trigger: card,
+                start: "top 85%",
+                scrub: true
+            },
+            y: 100,
+            opacity: 0,
+            duration: 1,
+            ease: "power3.out"
+        });
+    });
+
+    // About Section
+    gsap.from(".about-img img", {
+        scrollTrigger: {
+            trigger: ".about",
+            start: "top 75%",
+            scrub: true
+        },
+        x: -200,
+        opacity: 0,
+        duration: 1
+    });
+
+    gsap.from(".about-content p", {
+        scrollTrigger: {
+            trigger: ".about",
+            start: "top 75%",
+            scrub: true
+        },
+        x: 150,
+        opacity: 0,
+        stagger: 0.2
+    });
+
+});
+
+/* ================= MOBILE (≤ 768px) ================= */
+mm.add("(max-width: 768px)", () => {
+
+    // Section Titles (NO SCRUB for performance)
+    gsap.utils.toArray(".section-title").forEach(title => {
+        gsap.from(title.children, {
+            scrollTrigger: {
+                trigger: title,
+                start: "top 85%",
+                toggleActions: "play none none none"
+            },
+            y: 50,
+            opacity: 0,
+            stagger: 0.04,
+            duration: 0.5,
+            ease: "power2.out"
+        });
+    });
+
+    // Project Cards (simple fade-up)
+    gsap.from(".project-card", {
+        scrollTrigger: {
+            trigger: ".projects-grid",
+            start: "top 85%",
+        },
+        y: 60,
+        opacity: 0,
+        stagger: 0.15,
+        duration: 0.6,
+        ease: "power2.out"
+    });
+
+    // About Section
+    gsap.from(".about-img img, .about-content p", {
+        scrollTrigger: {
+            trigger: ".about",
+            start: "top 85%",
+        },
+        y: 40,
+        opacity: 0,
+        stagger: 0.2,
+        duration: 0.6
+    });
+
+});
+
+/* ================= COMMON ================= */
+
+// Refresh on resize
+window.addEventListener("resize", () => {
+    ScrollTrigger.refresh();
+});
