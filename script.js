@@ -1,7 +1,7 @@
 // Register plugins
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-// ---------- Animated Background Particles ----------
+// Animated Background Particles
 const particleCount = 50;
 const bg = document.querySelector(".animated-bg");
 
@@ -31,7 +31,7 @@ function animateParticle(p) {
     });
 }
 
-// ---------- Section-Based Background Color Change ----------
+//  Section-Based Background Color Change 
 const sections = document.querySelectorAll("section");
 sections.forEach(section => {
     ScrollTrigger.create({
@@ -78,7 +78,7 @@ function changeBackground(section) {
     });
 }
 
-// ---------- Hamburger Toggle for Mobile ----------
+//  Hamburger Toggle for Mobile 
 const menuToggle = document.createElement("div");
 menuToggle.classList.add("menu-toggle");
 menuToggle.innerHTML = "☰";
@@ -89,7 +89,7 @@ menuToggle.addEventListener("click", () => {
     menuToggle.textContent = menuToggle.textContent === "☰" ? "✖" : "☰";
 });
 
-// ---------- Home Section Entry Animations ----------
+//  Home Section Entry Animations 
 window.addEventListener("load", () => {
     gsap.from(".logo", { duration: 1, y: -20, opacity: 0, ease: "power3.out" });
     gsap.from(".nav-links li a", {
@@ -142,7 +142,7 @@ gsap.from(".home .intro h1 .b", {
     stagger: -0.15,
 })
 
-// // ---------- Animate All H2 Headings ----------
+// // Animate All H2 Headings 
 // document.querySelectorAll("h2.section-title").forEach(function (h2, index) {
 //     var h2Text = h2.textContent
 //     var splittedtText = h2Text.split("")
@@ -259,7 +259,7 @@ gsap.utils.toArray(".timeline-item").forEach((item, i) => {
 const projectCards = document.querySelectorAll(".project-card");
 const filterButtons = document.querySelectorAll(".filter-btn");
 
-// ---------- Filter Projects ----------
+//  Filter Projects
 filterButtons.forEach(btn => {
     btn.addEventListener("click", () => {
         const filter = btn.dataset.filter;
@@ -281,7 +281,7 @@ filterButtons.forEach(btn => {
     });
 });
 
-// ---------- Animate Project Cards ----------
+//  Animate Project Cards 
 projectCards.forEach((card, i) => {
     let fromProps = {};
 
@@ -334,7 +334,7 @@ projectCards.forEach((card, i) => {
 //     });
 // });
 
-// ---------- Certifications Section ----------
+//  Certifications Section 
 gsap.from(".cert-card", {
     scrollTrigger: {
         trigger: ".certifications",
@@ -350,7 +350,7 @@ gsap.from(".cert-card", {
     ease: "power2.out"
 });
 
-// ---------- Contact Section ----------
+// Contact Section 
 gsap.fromTo(".contact-form input, .contact-form textarea, .contact-form button",
     { y: 250, opacity: 0 },
     {
@@ -383,7 +383,7 @@ gsap.from(".contact-info", {
     ease: "power3.out"
 });
 
-// ---------- Smooth Scroll for Nav Links ----------
+// Smooth Scroll for Nav Links 
 const navLinks = document.querySelectorAll(".nav-links li a");
 navLinks.forEach(link => {
     link.addEventListener("click", (e) => {
@@ -399,7 +399,7 @@ navLinks.forEach(link => {
     });
 });
 
-// ---------- Active Nav Highlight ----------
+// Active Nav Highlight 
 sections.forEach((section, index) => {
     ScrollTrigger.create({
         trigger: section,
@@ -417,10 +417,10 @@ function setActiveLink(index) {
 
 gsap.registerPlugin(ScrollTrigger);
 
-/* ------------------ RESPONSIVE GSAP ------------------ */
+/* RESPONSIVE GSAP */
 const mm = gsap.matchMedia();
 
-/* ================= DESKTOP (≥ 769px) ================= */
+/* DESKTOP (≥ 769px)*/
 mm.add("(min-width: 769px)", () => {
 
     // Section Titles
@@ -478,7 +478,7 @@ mm.add("(min-width: 769px)", () => {
 
 });
 
-/* ================= MOBILE (≤ 768px) ================= */
+/*MOBILE (≤ 768px)*/
 mm.add("(max-width: 768px)", () => {
 
     // Section Titles (NO SCRUB for performance)
@@ -497,7 +497,7 @@ mm.add("(max-width: 768px)", () => {
         });
     });
 
-    // Project Cards (simple fade-up)
+    // Project Cards 
     gsap.from(".project-card", {
         scrollTrigger: {
             trigger: ".projects-grid",
@@ -524,9 +524,40 @@ mm.add("(max-width: 768px)", () => {
 
 });
 
-/* ================= COMMON ================= */
+/* COMMON*/
 
 // Refresh on resize
 window.addEventListener("resize", () => {
     ScrollTrigger.refresh();
 });
+
+/*Contact Section*/
+
+// gsap.matchMedia().add("(max-width: 768px)", () => {
+
+//     gsap.from(".contact-form input, .contact-form textarea, .contact-form button", {
+//         scrollTrigger: {
+//             trigger: ".contact",
+//             start: "top 90%",
+//             toggleActions: "play none none none"
+//         },
+//         y: 40,              // small movement
+//         opacity: 0,
+//         duration: 0.6,
+//         stagger: 0.2,
+//         ease: "power2.out"
+//     });
+
+//     gsap.from(".contact-info", {
+//         scrollTrigger: {
+//             trigger: ".contact",
+//             start: "top 90%",
+//             toggleActions: "play none none none"
+//         },
+//         y: 40,
+//         opacity: 0,
+//         duration: 0.6,
+//         ease: "power2.out"
+//     });
+
+// });
