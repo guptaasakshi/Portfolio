@@ -1,484 +1,721 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sakshi Portfolio</title>
+    <title>Sakshi Gupta — Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+    <canvas id="sparkle-canvas"></canvas>
 
-    <!-- Navbar -->
-    <header>
-        <div class="logo">Sakshi Gupta</div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#certifications">Certifications</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+    <header id="navbar">
+        <div class="logo" id="logoHome">
+            <svg class="logo-svg" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="lg1" x1="0" y1="0" x2="52" y2="52" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stop-color="#7c6af7" />
+                        <stop offset="100%" stop-color="#f7926a" />
+                    </linearGradient>
+                    <linearGradient id="lg2" x1="52" y1="0" x2="0" y2="52" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stop-color="#6af7c4" />
+                        <stop offset="100%" stop-color="#7c6af7" />
+                    </linearGradient>
+                </defs>
+                <polygon points="26,3 48,15 48,37 26,49 4,37 4,15" fill="none" stroke="url(#lg1)" stroke-width="1.5"
+                    opacity="0.6" />
+                <polygon points="26,10 42,19 42,33 26,42 10,33 10,19" fill="url(#lg1)" opacity="0.12" />
+                <path
+                    d="M20 21 Q20 18 23 18 L30 18 Q33 18 33 21 Q33 24 26 26 Q19 28 19 31 Q19 34 22 34 L32 34 Q35 34 35 31"
+                    stroke="url(#lg1)" stroke-width="2.2" stroke-linecap="round" fill="none" />
+                <circle cx="38" cy="14" r="3" fill="url(#lg2)" opacity="0.9" />
+                <circle cx="14" cy="38" r="2" fill="url(#lg1)" opacity="0.6" />
+            </svg>
+            <span class="logo-text">Sakshi<span class="logo-dot">.</span></span>
+        </div>
+        <nav>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#certifications" class="nav-link">Certs</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="resume.pdf" target="_blank" class="nav-resume-btn"><i class="fas fa-file-alt"></i>
+                        Resume</a></li>
+            </ul>
+        </nav>
+        <div class="nav-right">
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle light/dark mode">
+                <span class="theme-icon-sun"><i class="fas fa-sun"></i></span>
+                <span class="theme-icon-moon"><i class="fas fa-moon"></i></span>
+            </button>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
     </header>
 
-    <!-- Animated Background -->
-    <div class="animated-bg"></div>
+    <div class="nav-overlay" id="navOverlay"></div>
+    <div class="animated-bg" id="animatedBg"></div>
 
-    <!-- Home Section -->
+    <!-- HOME -->
     <section id="home" class="panel home" data-bg="home">
-        <div class="intro ">
-            <h1>Hello, I'm <span class="highlight">Sakshi</span></h1>
-            <h2>Aspiring Web Developer & Data Science Intern</h2>
-            <p>I craft modern, clean and responsive digital experiences with creativity & code.</p>
-            <!-- <button class="btn">View My Work</button> -->
+        <div class="home-grid">
+            <div class="home-tag"><span class="tag-dot"></span> Available for Internship</div>
+            <h1 class="home-title">
+                <span class="line-wrap"><span class="hello-anim" id="helloText"></span></span>
+                <span class="line-wrap"><span class="reveal-text">I'm <em
+                            class="name-highlight">Sakshi</em></span></span>
+            </h1>
+            <div class="home-sub">
+                <span class="typing-text"></span><span class="cursor-blink">|</span>
+            </div>
+            <p class="home-desc">Crafting modern, responsive digital experiences where <strong>creativity meets
+                    code</strong>.</p>
+            <div class="home-cta">
+                <a href="#projects" class="btn btn-primary">View Work <i class="fas fa-arrow-right"></i></a>
+                <a href="resume.pdf" target="_blank" class="btn btn-outline"><i class="fas fa-download"></i> Resume</a>
+                <a href="#contact" class="btn btn-ghost">Let's Talk</a>
+            </div>
+            <div class="home-scroll-hint"><span>scroll</span>
+                <div class="scroll-line"></div>
+            </div>
+        </div>
+        <div class="home-decorations">
+            <div class="deco-circle c1"></div>
+            <div class="deco-circle c2"></div>
+            <div class="deco-grid"></div>
+            <div class="floating-code">
+                <span>&lt;dev /&gt;</span><span>{ data }</span><span>ML()</span><span>→ UI</span>
+            </div>
         </div>
     </section>
 
-
-
-    <!-- About Section -->
+    <!-- ABOUT -->
     <section id="about" class="panel about" data-bg="about">
-        <h2 class="section-title">About <span>Me</span></h2>
-        <div class="about-container">
-            <!-- Left side (image) -->
-            <div class="about-img">
-                <img src="#" alt="Sakshi Profile">
+        <div class="container">
+            <div class="section-header">
+                <div class="sec-accent-line"></div>
+                <h2 class="section-title">About <span>Me</span></h2>
             </div>
-
-            <!-- Right side (content) -->
-            <div class="about-content">
-                <p>
-                    I am a passionate <span class="highlight">Web Developer</span> with a keen eye for clean design and
-                    modern frontend development. I enjoy crafting responsive, user-friendly websites that merge
-                    creativity with functionality.
-                </p>
-                <p>
-                    Alongside development, I am a <span class="highlight">Data Science Intern</span> where I explore
-                    datasets, apply machine learning techniques, and transform raw data into meaningful insights for
-                    better decision-making.
-                </p>
-                <p>
-                    My interests also extend to <span class="highlight">Analytics</span> — I love discovering trends,
-                    building dashboards, and applying data-driven approaches to solve real-world problems.
-                </p>
+            <div class="about-grid">
+                <div class="about-visual">
+                    <div class="about-avatar">
+                        <div class="avatar-initials">SG</div>
+                        <div class="avatar-ring r1"></div>
+                        <div class="avatar-ring r2"></div>
+                        <div class="avatar-ring r3"></div>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-item"><span class="stat-num" data-target="8.82" data-float="true">0</span><span
+                                class="stat-label">CGPA</span></div>
+                        <div class="stat-item"><span class="stat-num" data-target="14" data-suffix="+">0</span><span
+                                class="stat-label">Projects</span></div>
+                        <div class="stat-item"><span class="stat-num" data-target="4" data-suffix="+">0</span><span
+                                class="stat-label">Certs</span></div>
+                    </div>
+                    <a href="resume.pdf" target="_blank" class="resume-download-btn"><i class="fas fa-file-pdf"></i>
+                        View Resume</a>
+                </div>
+                <div class="about-content">
+                    <p class="about-para">I am a passionate <mark>Web Developer</mark> with a keen eye for clean design
+                        and modern frontend development. I enjoy crafting responsive, user-friendly websites that merge
+                        creativity with functionality.</p>
+                    <p class="about-para">Alongside development, I am a <mark>Data Science Intern</mark> where I explore
+                        datasets, apply machine learning techniques, and transform raw data into meaningful insights.
+                    </p>
+                    <p class="about-para">My interests also extend to <mark>Analytics</mark> — I love discovering
+                        trends, building dashboards, and applying data-driven approaches to solve real-world problems.
+                    </p>
+                    <div class="about-tags"><span>Problem Solver</span><span>Creative Thinker</span><span>Data
+                            Enthusiast</span><span>UI Lover</span></div>
+                </div>
             </div>
         </div>
     </section>
 
-
-    <!-- Skills Section -->
+    <!-- SKILLS -->
     <section id="skills" class="panel skills" data-bg="skills">
         <div class="container">
-            <h2 class="section-title">My <span>Skills</span></h2>
-
-            <!-- Web Development -->
-            <div class="skill-category">
-                <h3>💻 Web Development</h3>
-                <div class="skill-box">
-                    <span>HTML5</span>
-                    <span>CSS</span>
-                    <span>Bootstrap</span>
-                    <span>Tailwind CSS</span>
-                    <span>JavaScript</span>
-                    <span>React.js</span>
-                    <span>React Native</span>
-                    <span>Node.js</span>
-                </div>
+            <div class="section-header">
+                <div class="sec-accent-line"></div>
+                <h2 class="section-title">My <span>Skills</span></h2>
             </div>
-
-            <!-- Data Science -->
-            <div class="skill-category">
-                <h3>📊 Data Science & Analytics</h3>
-                <div class="skill-box">
-                    <span>Python</span>
-                    <span>Pandas</span>
-                    <span>NumPy</span>
-                    <span>Matplotlib</span>
-                    <span>Scikit-learn</span>
+            <div class="skills-container" id="skillsContainer">
+                <div class="skill-card" data-index="0">
+                    <div class="skill-card-inner">
+                        <div class="skill-card-header">
+                            <div class="skill-icon-wrap">
+                                <svg viewBox="0 0 40 40" fill="none">
+                                    <rect x="4" y="8" width="32" height="24" rx="3" stroke="currentColor"
+                                        stroke-width="1.8" />
+                                    <path d="M15 18l-5 4 5 4M25 18l5 4-5 4M20 15l-3 10" stroke="currentColor"
+                                        stroke-width="1.8" stroke-linecap="round" />
+                                </svg>
+                            </div>
+                            <div class="skill-header-text">
+                                <h3>Web Development</h3>
+                                <span class="skill-count">8 skills</span>
+                            </div>
+                            <div class="skill-toggle-icon"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="skill-pills-wrap">
+                            <div class="skill-pills">
+                                <span class="pill">HTML5</span><span class="pill">CSS3</span><span
+                                    class="pill">Bootstrap</span><span class="pill">Tailwind CSS</span><span
+                                    class="pill">JavaScript</span><span class="pill">React.js</span><span
+                                    class="pill">React Native</span><span class="pill">Node.js</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Programming Languages -->
-            <div class="skill-category">
-                <h3>⚙️ Programming Languages</h3>
-                <div class="skill-box">
-                    <span>Python</span>
-                    <span>R</span>
-                    <span>Java</span>
-                    <span>C</span>
-                    <span>C++</span>
-                    <span>JavaScript</span>
+                <div class="skill-card" data-index="1">
+                    <div class="skill-card-inner">
+                        <div class="skill-card-header">
+                            <div class="skill-icon-wrap">
+                                <svg viewBox="0 0 40 40" fill="none">
+                                    <path d="M8 30 L14 22 L20 26 L26 16 L32 20" stroke="currentColor" stroke-width="1.8"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <circle cx="14" cy="22" r="2" fill="currentColor" />
+                                    <circle cx="20" cy="26" r="2" fill="currentColor" />
+                                    <circle cx="26" cy="16" r="2" fill="currentColor" />
+                                </svg>
+                            </div>
+                            <div class="skill-header-text">
+                                <h3>Data Science & Analytics</h3>
+                                <span class="skill-count">5 skills</span>
+                            </div>
+                            <div class="skill-toggle-icon"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="skill-pills-wrap">
+                            <div class="skill-pills">
+                                <span class="pill">Python</span><span class="pill">Pandas</span><span
+                                    class="pill">NumPy</span><span class="pill">Matplotlib</span><span
+                                    class="pill">Scikit-learn</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Databases & Tools -->
-            <div class="skill-category">
-                <h3>🛠️ Databases & Tools</h3>
-                <div class="skill-box">
-                    <span>MySQL</span>
-                    <span>MongoDB</span>
-                    <span>Git/GitHub</span>
-                    <span>VS Code</span>
-                    <span>Jupyter</span>
+                <div class="skill-card" data-index="2">
+                    <div class="skill-card-inner">
+                        <div class="skill-card-header">
+                            <div class="skill-icon-wrap">
+                                <svg viewBox="0 0 40 40" fill="none">
+                                    <path d="M12 15l-6 5 6 5M28 15l6 5-6 5M22 12l-4 16" stroke="currentColor"
+                                        stroke-width="1.8" stroke-linecap="round" />
+                                </svg>
+                            </div>
+                            <div class="skill-header-text">
+                                <h3>Programming Languages</h3>
+                                <span class="skill-count">6 skills</span>
+                            </div>
+                            <div class="skill-toggle-icon"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="skill-pills-wrap">
+                            <div class="skill-pills">
+                                <span class="pill">Python</span><span class="pill">R</span><span
+                                    class="pill">Java</span><span class="pill">C</span><span
+                                    class="pill">C++</span><span class="pill">JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-card" data-index="3">
+                    <div class="skill-card-inner">
+                        <div class="skill-card-header">
+                            <div class="skill-icon-wrap">
+                                <svg viewBox="0 0 40 40" fill="none">
+                                    <ellipse cx="20" cy="13" rx="12" ry="5" stroke="currentColor" stroke-width="1.8" />
+                                    <path d="M8 13v7c0 2.76 5.37 5 12 5s12-2.24 12-5v-7" stroke="currentColor"
+                                        stroke-width="1.8" />
+                                    <path d="M8 20v7c0 2.76 5.37 5 12 5s12-2.24 12-5v-7" stroke="currentColor"
+                                        stroke-width="1.8" />
+                                </svg>
+                            </div>
+                            <div class="skill-header-text">
+                                <h3>Databases & Tools</h3>
+                                <span class="skill-count">5 skills</span>
+                            </div>
+                            <div class="skill-toggle-icon"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="skill-pills-wrap">
+                            <div class="skill-pills">
+                                <span class="pill">MySQL</span><span class="pill">MongoDB</span><span
+                                    class="pill">Git/GitHub</span><span class="pill">VS Code</span><span
+                                    class="pill">Jupyter</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-
-
-    <!-- Education Section -->
+    <!-- EDUCATION -->
     <section id="education" class="panel education" data-bg="education">
         <div class="container">
-            <h2 class="section-title">My <span>Education</span></h2>
-
+            <div class="section-header">
+                <div class="sec-accent-line"></div>
+                <h2 class="section-title">My <span>Education</span></h2>
+            </div>
             <div class="timeline">
-
-                <!-- Item 1 -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>B.Tech in Computer Science & Engineering</h3>
-                        <p class="timeline-date">2023 - Present</p>
-                        <p><strong>CGPA:</strong> 8.82</p>
-                        <p>Shobhit Institute Of Engineering & Technology, specializing in Web Development & Data Science
-                            with focus on modern
-                            technologies and real-world projects.</p>
+                    <div class="timeline-card">
+                        <div class="timeline-badge">B.Tech CSE</div>
+                        <h3>Computer Science & Engineering</h3>
+                        <p class="timeline-inst">Shobhit Institute Of Engineering & Technology</p>
+                        <div class="timeline-meta"><span class="meta-tag">2023 — Present</span><span
+                                class="meta-tag grade">CGPA: 8.82</span></div>
+                        <p>Specializing in Web Development & Data Science with focus on modern technologies and
+                            real-world projects.</p>
                     </div>
                 </div>
-
-                <!-- Item 2 -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Senior Secondary (12th)</h3>
-                        <h4 class="timeline-date">2021 - 2023</h4>
-                        <p><strong>Percentage</strong> 88%</p>
-                        <p>DDI College — Science (PCM) with Computer Science. Built strong foundation in Science and
-                            mathematics.</p>
+                    <div class="timeline-card">
+                        <div class="timeline-badge">12th Grade</div>
+                        <h3>Senior Secondary (Science)</h3>
+                        <p class="timeline-inst">DDI College — PCM with Computer Science</p>
+                        <div class="timeline-meta"><span class="meta-tag">2021 — 2023</span><span
+                                class="meta-tag grade">88%</span></div>
+                        <p>Built strong foundation in Science and mathematics.</p>
                     </div>
                 </div>
-
-                <!-- Item 3 -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Secondary (10th)</h3>
-                        <p class="timeline-date">2020 - 2021</p>
-                        <p><strong>Percentage</strong> 91%</p>
-                        <p>DDH School — Scored excellent grades with interest in logical problem solving & creativity.
-                        </p>
+                    <div class="timeline-card">
+                        <div class="timeline-badge">10th Grade</div>
+                        <h3>Secondary Education</h3>
+                        <p class="timeline-inst">DDH School</p>
+                        <div class="timeline-meta"><span class="meta-tag">2020 — 2021</span><span
+                                class="meta-tag grade">91%</span></div>
+                        <p>Scored excellent grades with interest in logical problem solving & creativity.</p>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-
-
-    <!-- Projects Section -->
+    <!-- PROJECTS -->
     <section id="projects" class="panel projects" data-bg="projects">
         <div class="container">
-            <h2 class="section-title">My <span>Projects</span></h2>
-
-            <!-- Project Categories Buttons -->
+            <div class="section-header">
+                <div class="sec-accent-line"></div>
+                <h2 class="section-title">My <span>Projects</span></h2>
+            </div>
             <div class="project-filters">
-                <button class="filter-btn" data-filter="all">All Projects</button>
-                <button class="filter-btn" data-filter="web">Web Development</button>
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web Dev</button>
                 <button class="filter-btn" data-filter="data">Data Science</button>
             </div>
-
-            <div class="projects-grid">
-
-                <!-- Project 1: data -->
+            <div class="projects-grid" id="projectsGrid">
                 <div class="project-card" data-category="data">
-                    <div class="project-img">
-                        <img src="./src/ArtifyX.png" alt="ArtifyX">
+                    <div class="project-visual" data-theme="ai-art">
+                        <div class="project-bg-art">
+                            <div class="art-circle a1"></div>
+                            <div class="art-circle a2"></div>
+                            <div class="art-circle a3"></div>
+                        </div>
+                        <div class="project-icon-wrap">🎨</div>
+                        <div class="project-category-tag">AI / Neural</div>
                     </div>
                     <div class="project-content">
-                        <h3>ArtifyX – AI Style Transfer Web App</h3>
-                        <p>
-                            AI-driven <strong>Neural Style Transfer</strong> web app that transforms images
-                            and videos into artistic visuals with real-time performance.
-                        </p>
-                        <a href="https://artifyx-kzoz5gbn23krurzxf6qw3q.streamlit.app/" class="btn">View Project</a>
+                        <h3>ArtifyX</h3>
+                        <p>AI-driven <strong>Neural Style Transfer</strong> web app that transforms images into artistic
+                            visuals with real-time performance.</p>
+                        <div class="project-tech"><span>Python</span><span>Streamlit</span><span>TensorFlow</span></div>
+                        <a href="https://artifyx-kzoz5gbn23krurzxf6qw3q.streamlit.app/" class="project-link"
+                            target="_blank">View Project <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
-                <!-- Project 2: data -->
                 <div class="project-card" data-category="data">
-                    <div class="project-img">
-                        <img src="./src/Skylytics.png" alt="Skylytics">
+                    <div class="project-visual" data-theme="forecast">
+                        <div class="project-bg-art">
+                            <div class="art-wave w1"></div>
+                            <div class="art-wave w2"></div>
+                            <div class="art-wave w3"></div>
+                        </div>
+                        <div class="project-icon-wrap">✈️</div>
+                        <div class="project-category-tag">Forecasting</div>
                     </div>
                     <div class="project-content">
                         <h3>Skylytics</h3>
-                        <p>
-                            R-based data visualization and forecasting project using <strong>ARIMA</strong>,
-                            featuring interactive charts and a clean web dashboard.
-                        </p>
-                        <a href="https://github.com/guptaasakshi/Skylytics" class="btn">View Project</a>
+                        <p>R-based data visualization and forecasting project using <strong>ARIMA</strong>, featuring
+                            interactive charts and a web dashboard.</p>
+                        <div class="project-tech"><span>R</span><span>ARIMA</span><span>Shiny</span></div><a
+                            href="https://github.com/guptaasakshi/Skylytics" class="project-link" target="_blank">View
+                            Project <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
-                <!-- Project 3: data -->
                 <div class="project-card" data-category="data">
-                    <div class="project-img">
-                        <img src="./src/AeroSense.png" alt="AeroSense">
+                    <div class="project-visual" data-theme="aqi">
+                        <div class="project-bg-art">
+                            <div class="aqi-bar b1"></div>
+                            <div class="aqi-bar b2"></div>
+                            <div class="aqi-bar b3"></div>
+                            <div class="aqi-bar b4"></div>
+                            <div class="aqi-bar b5"></div>
+                        </div>
+                        <div class="project-icon-wrap">🌫️</div>
+                        <div class="project-category-tag">ML / Analytics</div>
                     </div>
                     <div class="project-content">
                         <h3>AeroSense</h3>
-                        <p>
-                            A smart <strong>air quality analytics and forecasting system</strong> that predicts AQI
-                            using machine learning and visualizes pollution trends through an interactive dashboard.
-                        </p>
-                        <a href="https://github.com/guptaasakshi/AeroSense" class="btn">View Project</a>
+                        <p>Smart <strong>air quality analytics and forecasting system</strong> that predicts AQI using
+                            machine learning.</p>
+                        <div class="project-tech"><span>Python</span><span>ML</span><span>Dashboard</span></div><a
+                            href="https://github.com/guptaasakshi/AeroSense" class="project-link" target="_blank">View
+                            Project <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
-                <!-- Project 4: data -->
                 <div class="project-card" data-category="data">
-                    <div class="project-img">
-                        <img src="./src/" alt="ToneCanvas">
+                    <div class="project-visual" data-theme="multimodal">
+                        <div class="project-bg-art">
+                            <div class="art-note n1">♪</div>
+                            <div class="art-note n2">♫</div>
+                            <div class="art-note n3">♬</div>
+                        </div>
+                        <div class="project-icon-wrap">🎵</div>
+                        <div class="project-category-tag">Multimodal AI</div>
                     </div>
                     <div class="project-content">
                         <h3>ToneCanvas</h3>
-                        <p>
-                            A <strong>multimodal AI application</strong> that generates images and music from text
-                            prompts with real-time interaction and efficient performance.
-                        </p>
-                        <a href="https://github.com/guptaasakshi/ToneCanvas" class="btn">View Project</a>
+                        <p>A <strong>multimodal AI application</strong> that generates images and music from text
+                            prompts with real-time interaction.</p>
+                        <div class="project-tech"><span>Python</span><span>GenAI</span><span>API</span></div><a
+                            href="https://github.com/guptaasakshi/ToneCanvas" class="project-link" target="_blank">View
+                            Project <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
-                <!-- Project 5: data -->
                 <div class="project-card" data-category="data">
-                    <div class="project-img">
-                        <img src="./src/EcoVision.png" alt="Eco_Vision_Predictor">
+                    <div class="project-visual" data-theme="deforestation">
+                        <div class="project-bg-art">
+                            <div class="forest-tree t1">🌳</div>
+                            <div class="forest-tree t2">🌲</div>
+                            <div class="forest-tree t3">🌴</div>
+                            <div class="forest-fade"></div>
+                        </div>
+                        <div class="project-icon-wrap">🌍</div>
+                        <div class="project-category-tag">LSTM / GEE</div>
                     </div>
                     <div class="project-content">
                         <h3>Eco Vision Predictor</h3>
-                        <p>
-                            "An LSTM model to forecast deforestation in Rondônia, Brazil using Google Earth Engine
-                            data."
-                        </p>
-                        <a href="https://github.com/guptaasakshi/Eco_Vision_Predictor" class="btn">View Project</a>
+                        <p>LSTM model to forecast deforestation in Rondônia, Brazil using <strong>Google Earth
+                                Engine</strong> data.</p>
+                        <div class="project-tech"><span>Python</span><span>LSTM</span><span>GEE</span></div><a
+                            href="https://github.com/guptaasakshi/Eco_Vision_Predictor" class="project-link"
+                            target="_blank">View Project <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
-                <!-- Project 1: Web -->
                 <div class="project-card" data-category="web">
-                    <div class="project-img">
-                        <img src="./src/Registration.png" alt="Registration Form">
+                    <div class="project-visual" data-theme="form">
+                        <div class="project-bg-art">
+                            <div class="form-line fl1"></div>
+                            <div class="form-line fl2"></div>
+                            <div class="form-line fl3"></div>
+                            <div class="form-btn-fake"></div>
+                        </div>
+                        <div class="project-icon-wrap">📋</div>
+                        <div class="project-category-tag">PHP / Web</div>
                     </div>
                     <div class="project-content">
                         <h3>Student Registration Form</h3>
-                        <p>PHP-based <strong>Music Player</strong> with CRUD, file upload, database storage, dark mode,
-                            and responsive UI.</p>
-                        <a href="https://registration-form-nhrq.vercel.app/" class="btn">View Project</a>
+                        <p>PHP-based registration system with CRUD operations, database storage, dark mode and
+                            responsive UI.</p>
+                        <div class="project-tech"><span>PHP</span><span>MySQL</span><span>CSS</span></div><a
+                            href="https://registration-form-nhrq.vercel.app/" class="project-link" target="_blank">View
+                            Project <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
-                <!-- Project 1: Web -->
                 <div class="project-card" data-category="web">
-                    <div class="project-img">
-                        <img src="./src/Multi.png" alt="Multiples Game">
+                    <div class="project-visual" data-theme="games">
+                        <div class="project-bg-art">
+                            <div class="game-pixel gp1"></div>
+                            <div class="game-pixel gp2"></div>
+                            <div class="game-pixel gp3"></div>
+                            <div class="game-pixel gp4"></div>
+                        </div>
+                        <div class="project-icon-wrap">🎮</div>
+                        <div class="project-category-tag">Games / JS</div>
                     </div>
                     <div class="project-content">
                         <h3>Multiples Games</h3>
-                        <p>A <strong>multi-game website</strong> with six fun games—KBC Quiz, Bubble Shot, Snake, Typing
-                            Test, Rock Paper Scissors, and Tic Tac Toe—for entertainment and skill-building.</p>
-                        <a href="https://multiple-games-main.vercel.app/" class="btn">View Project</a>
+                        <p>A <strong>multi-game website</strong> with six fun games — KBC Quiz, Bubble Shot, Snake,
+                            Typing Test, RPS, and Tic Tac Toe.</p>
+                        <div class="project-tech"><span>JavaScript</span><span>HTML</span><span>CSS</span></div><a
+                            href="https://multiple-games-main.vercel.app/" class="project-link" target="_blank">View
+                            Project <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
-                <!-- Project 2: Web -->
                 <div class="project-card" data-category="web">
-                    <div class="project-img">
-                        <img src="./src/chatbot.png" alt="Personal Chatbot">
+                    <div class="project-visual" data-theme="chatbot">
+                        <div class="project-bg-art">
+                            <div class="chat-bubble cb1">Hi!</div>
+                            <div class="chat-bubble cb2">Hello 👋</div>
+                            <div class="chat-bubble cb3">...</div>
+                        </div>
+                        <div class="project-icon-wrap">🤖</div>
+                        <div class="project-category-tag">AI / Next.js</div>
                     </div>
                     <div class="project-content">
                         <h3>AI Chatbot</h3>
-                        <p>A simple <strong>AI chat app</strong> built with Next.js using the OpenAI API, featuring a
-                            clean dark UI, smart responses, and a mobile-friendly design.</p>
-                        <a href="https://your-personal-ai-chat-bot.vercel.app/" class="btn">View Project</a>
+                        <p>A <strong>AI chat app</strong> built with Next.js using the OpenAI API, featuring a clean
+                            dark UI and mobile-friendly design.</p>
+                        <div class="project-tech"><span>Next.js</span><span>OpenAI</span><span>React</span></div><a
+                            href="https://your-personal-ai-chat-bot.vercel.app/" class="project-link"
+                            target="_blank">View Project <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
-                <!-- Project 2: Web -->
                 <div class="project-card" data-category="web">
-                    <div class="project-img">
-                        <img src="./src/calculator.png" alt="Calculator App">
+                    <div class="project-visual" data-theme="calc">
+                        <div class="project-bg-art">
+                            <div class="calc-grid">
+                                <div class="calc-btn">7</div>
+                                <div class="calc-btn">8</div>
+                                <div class="calc-btn">9</div>
+                                <div class="calc-btn">4</div>
+                                <div class="calc-btn">5</div>
+                                <div class="calc-btn op">+</div>
+                            </div>
+                        </div>
+                        <div class="project-icon-wrap">🔢</div>
+                        <div class="project-category-tag">React App</div>
                     </div>
                     <div class="project-content">
                         <h3>Calculator App</h3>
-                        <p>A simple and smart <strong>Calculator App</strong> to solve your math instantly – anytime,
-                            anywhere.</p>
-                        <a href="https://react-calculator-ten-sigma.vercel.app/" class="btn">View Project</a>
+                        <p>A smart <strong>Calculator App</strong> to solve your math instantly — built with React,
+                            clean design.</p>
+                        <div class="project-tech"><span>React</span><span>JavaScript</span></div><a
+                            href="https://react-calculator-ten-sigma.vercel.app/" class="project-link"
+                            target="_blank">View Project <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
-                <!-- Project 3: Web  -->
                 <div class="project-card" data-category="web">
-                    <div class="project-img">
-                        <img src="./src/starpopup.png" alt="StarPop Adventure">
+                    <div class="project-visual" data-theme="space">
+                        <div class="project-bg-art">
+                            <div class="star s1">⭐</div>
+                            <div class="star s2">✨</div>
+                            <div class="star s3">⭐</div>
+                            <div class="space-bg"></div>
+                        </div>
+                        <div class="project-icon-wrap">🚀</div>
+                        <div class="project-category-tag">Game / JS</div>
                     </div>
                     <div class="project-content">
                         <h3>StarPop Adventure</h3>
-                        <p>Blast off into <strong>StarPop Adventure</strong> – where popping stars takes you on a
+                        <p>Blast off into <strong>StarPop Adventure</strong> — where popping stars takes you on a
                             thrilling space journey!</p>
-                        <a href="https://star-pop-adventure-yzkm.vercel.app/" class="btn">View Project</a>
+                        <div class="project-tech"><span>JavaScript</span><span>Canvas</span></div><a
+                            href="https://star-pop-adventure-yzkm.vercel.app/" class="project-link" target="_blank">View
+                            Project <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
-                <!-- Project 4: Web -->
                 <div class="project-card" data-category="web">
-                    <div class="project-img">
-                        <img src="./src/weatherApp.png" alt="Weather App">
+                    <div class="project-visual" data-theme="weather">
+                        <div class="project-bg-art">
+                            <div class="weather-icon wi1">☀️</div>
+                            <div class="weather-icon wi2">🌤️</div>
+                            <div class="weather-icon wi3">🌧️</div>
+                        </div>
+                        <div class="project-icon-wrap">🌦️</div>
+                        <div class="project-category-tag">API / JS</div>
                     </div>
                     <div class="project-content">
                         <h3>Weather App</h3>
                         <p>Real-time <strong>Weather Application</strong> with forecast, error handling, and animated
                             icons using APIs.</p>
-                        <a href="https://github.com/guptaasakshi/Weather-Application" class="btn">View Project</a>
+                        <div class="project-tech"><span>JavaScript</span><span>API</span></div><a
+                            href="https://github.com/guptaasakshi/Weather-Application" class="project-link"
+                            target="_blank">View Project <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
-                <!-- Project 5 : web-->
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="./src/todo.png" alt="To-Do App">
+                <div class="project-card" data-category="web">
+                    <div class="project-visual" data-theme="todo">
+                        <div class="project-bg-art">
+                            <div class="todo-item ti1"><span class="check">✓</span> Design UI</div>
+                            <div class="todo-item ti2">Write code</div>
+                            <div class="todo-item ti3">Deploy app</div>
+                        </div>
+                        <div class="project-icon-wrap">✅</div>
+                        <div class="project-category-tag">React App</div>
                     </div>
                     <div class="project-content">
                         <h3>To-Do App</h3>
-                        <p>A simple yet powerful <strong>To-Do App</strong> to help you stay organized, manage tasks
-                            easily, and never miss a deadline!</p>
-                        <a href="https://todo-theta-fawn-94.vercel.app/" class="btn">View Project</a>
+                        <p>A simple yet powerful <strong>To-Do App</strong> to help you stay organized and never miss a
+                            deadline!</p>
+                        <div class="project-tech"><span>React</span><span>LocalStorage</span></div><a
+                            href="https://todo-theta-fawn-94.vercel.app/" class="project-link" target="_blank">View
+                            Project <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
-                <!-- Project 6: Web -->
                 <div class="project-card" data-category="web">
-                    <div class="project-img">
-                        <img src="./src/landing.png" alt="Animated Landing Page">
+                    <div class="project-visual" data-theme="landing">
+                        <div class="project-bg-art">
+                            <div class="landing-line ll1"></div>
+                            <div class="landing-line ll2"></div>
+                            <div class="landing-dot ld1"></div>
+                            <div class="landing-dot ld2"></div>
+                        </div>
+                        <div class="project-icon-wrap">🎯</div>
+                        <div class="project-category-tag">GSAP / HTML</div>
                     </div>
                     <div class="project-content">
                         <h3>Animated Landing Page</h3>
                         <p>Responsive personal portfolio using HTML, CSS, JavaScript, GSAP animations, and smooth
                             scroll.</p>
-                        <a href="https://animated-landing-page-4eo8.vercel.app/" class="btn">View Project</a>
+                        <div class="project-tech"><span>GSAP</span><span>HTML</span><span>JS</span></div><a
+                            href="https://animated-landing-page-4eo8.vercel.app/" class="project-link"
+                            target="_blank">View Project <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
-                <!-- Project 7: Web -->
                 <div class="project-card" data-category="web">
-                    <div class="project-img">
-                        <img src="./src/Music.png" alt="Music Player">
+                    <div class="project-visual" data-theme="music">
+                        <div class="project-bg-art">
+                            <div class="music-bar mb1"></div>
+                            <div class="music-bar mb2"></div>
+                            <div class="music-bar mb3"></div>
+                            <div class="music-bar mb4"></div>
+                            <div class="music-bar mb5"></div>
+                        </div>
+                        <div class="project-icon-wrap">🎶</div>
+                        <div class="project-category-tag">PHP / MySQL</div>
                     </div>
                     <div class="project-content">
                         <h3>Advanced Music Player</h3>
                         <p>PHP-based <strong>Music Player</strong> with CRUD, file upload, database storage, dark mode,
                             and responsive UI.</p>
-                        <a href="https://github.com/guptaasakshi/Music-Player" class="btn">View Project</a>
+                        <div class="project-tech"><span>PHP</span><span>MySQL</span></div><a
+                            href="https://github.com/guptaasakshi/Music-Player" class="project-link"
+                            target="_blank">View Project <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
+            </div>
+            <div class="mobile-slider-nav" id="mobileSliderNav">
+                <button class="slider-prev" id="sliderPrev"><i class="fas fa-chevron-left"></i></button>
+                <div class="slider-dots" id="sliderDots"></div>
+                <button class="slider-next" id="sliderNext"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
     </section>
 
-
-    <!-- Certification & Courses Section -->
+    <!-- CERTIFICATIONS -->
     <section id="certifications" class="panel certifications" data-bg="certifications">
         <div class="container">
-            <h2 class="section-title">Certifications & <span>Courses</span></h2>
-            <p class="subtitle">
-                Here are some of the certifications and courses I have completed to enhance my skills in Web
-                Development, Data Science, and Analytics.
-            </p>
-
+            <div class="section-header">
+                <div class="sec-accent-line"></div>
+                <h2 class="section-title">Certifications & <span>Courses</span></h2>
+            </div>
+            <p class="section-subtitle">Certifications completed to enhance skills in Web Development, Data Science, and
+                Analytics.</p>
             <div class="cert-grid">
                 <div class="cert-card">
+                    <div class="cert-glow"></div>
+                    <div class="cert-icon">🌐</div>
+                    <div class="cert-provider-badge">Coursera</div>
                     <h3>Full Stack Web Development</h3>
-                    <span class="cert-provider">Coursera</span>
                     <p>Learned HTML, CSS, JavaScript, React, Node.js, and Database Management.</p>
+                    <div class="cert-line"></div>
                 </div>
-
                 <div class="cert-card">
+                    <div class="cert-glow"></div>
+                    <div class="cert-icon">📊</div>
+                    <div class="cert-provider-badge">Coursera</div>
                     <h3>Data Science Specialization</h3>
-                    <span class="cert-provider">Coursera</span>
                     <p>Python, Pandas, NumPy, Machine Learning, Data Visualization and Statistics.</p>
+                    <div class="cert-line"></div>
                 </div>
-
                 <div class="cert-card">
+                    <div class="cert-glow"></div>
+                    <div class="cert-icon">📈</div>
+                    <div class="cert-provider-badge">Google</div>
                     <h3>Google Analytics Certification</h3>
-                    <span class="cert-provider">Google</span>
                     <p>Mastered web analytics, reports, dashboards, and data-driven insights.</p>
+                    <div class="cert-line"></div>
                 </div>
-
                 <div class="cert-card">
+                    <div class="cert-glow"></div>
+                    <div class="cert-icon">⚛️</div>
+                    <div class="cert-provider-badge">Udemy</div>
                     <h3>React JS Advanced</h3>
-                    <span class="cert-provider">Udemy</span>
                     <p>Advanced React concepts including Hooks, Context API, and project building.</p>
+                    <div class="cert-line"></div>
                 </div>
-
-                <!-- <div class="cert-card">
-                    <h3>React JS Advanced</h3>
-                    <span class="cert-provider">Udemy</span>
-                    <p>Advanced React concepts including Hooks, Context API, and project building.</p>
-                </div>
-
-                <div class="cert-card">
-                    <h3>React JS Advanced</h3>
-                    <span class="cert-provider">Udemy</span>
-                    <p>Advanced React concepts including Hooks, Context API, and project building.</p>
-                </div> -->
-
-
             </div>
         </div>
     </section>
 
-
-
-    <!-- Contact Section -->
+    <!-- CONTACT -->
     <section id="contact" class="panel contact" data-bg="contact">
         <div class="container">
-            <h2 class="section-title">Get in <span>Touch</span></h2>
-            <p class="contact-subtitle">
-                Interested in working together? Drop me a message or connect via socials.
-            </p>
-
+            <div class="section-header">
+                <div class="sec-accent-line"></div>
+                <h2 class="section-title">Get in <span>Touch</span></h2>
+            </div>
+            <p class="section-subtitle">Interested in working together? Drop a message or connect via socials.</p>
             <div class="contact-grid">
-                <!-- Contact Form -->
-                <form class="contact-form">
-                    <input type="text" placeholder="Your Name" required />
-                    <input type="email" placeholder="Your Email" required />
-                    <textarea placeholder="Your Message" rows="5" required></textarea>
-                    <button type="submit" class="btn">Send Message</button>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group"><input type="text" placeholder="Your Name" required autocomplete="off">
+                    </div>
+                    <div class="form-group"><input type="email" placeholder="Your Email" required autocomplete="off">
+                    </div>
+                    <div class="form-group"><textarea rows="5" placeholder="Your Message" required></textarea></div>
+                    <button type="submit" class="btn btn-primary send-btn">Send Message <i
+                            class="fas fa-paper-plane"></i></button>
                 </form>
-
-                <!-- Contact Info -->
                 <div class="contact-info">
-                    <h3>Connect With Me</h3>
-                    <p><strong>Email:</strong> sakshigupta004479@gmail.com</p>
-                    <p><strong>Phone:</strong> +91 9267935243</p>
+                    <div class="contact-card">
+                        <div class="contact-detail"><i class="fas fa-envelope"></i>
+                            <div><span class="detail-label">Email</span><span
+                                    class="detail-value">sakshigupta004479@gmail.com</span></div>
+                        </div>
+                        <div class="contact-detail"><i class="fas fa-phone"></i>
+                            <div><span class="detail-label">Phone</span><span class="detail-value">+91 9267935243</span>
+                            </div>
+                        </div>
+                        <div class="contact-detail"><i class="fas fa-map-marker-alt"></i>
+                            <div><span class="detail-label">Location</span><span class="detail-value">India</span></div>
+                        </div>
+                    </div>
+                    <div class="contact-resume-card">
+                        <div class="resume-card-content">
+                            <div class="resume-icon-big"><i class="fas fa-file-pdf"></i></div>
+                            <div>
+                                <h4>My Resume</h4>
+                                <p>Download my latest CV</p>
+                            </div>
+                        </div>
+                        <a href="resume.pdf" target="_blank" class="btn btn-primary resume-dl-btn"><i
+                                class="fas fa-download"></i> Download</a>
+                    </div>
                     <div class="socials">
-                        <a href="https://github.com/guptaasakshi"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/sakshi-gupta-31a476291"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://github.com/guptaasakshi" target="_blank" class="social-btn"><i
+                                class="fab fa-github"></i><span>GitHub</span></a>
+                        <a href="https://www.linkedin.com/in/sakshi-gupta-31a476291" target="_blank"
+                            class="social-btn"><i class="fab fa-linkedin"></i><span>LinkedIn</span></a>
+                        <a href="#" class="social-btn"><i class="fab fa-twitter"></i><span>Twitter</span></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <footer class="footer">
+        <p>Designed & Built with ❤️ by <span>Sakshi Gupta</span> &copy; 2024</p>
+    </footer>
 
-    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
