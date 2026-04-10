@@ -506,3 +506,93 @@ window.addEventListener('resize', () => {
 if (window.innerWidth <= 768) {
     setTimeout(updateMobileSlider, 300);
 }
+
+// ===== DEV GIRL 3D TILT + CLICK INTERACTION =====
+const girlWrap = document.getElementById('devGirlWrap');
+const girlSvg = document.getElementById('devGirlSvg');
+const rippleZone = document.getElementById('clickRipple');
+
+if (girlWrap && girlSvg) {
+    // 3D tilt on mouse move
+    girlWrap.addEventListener('mousemove', (e) => {
+        const rect = girlWrap.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        const dx = (e.clientX - cx) / (rect.width / 2);
+        const dy = (e.clientY - cy) / (rect.height / 2);
+        const rotY = dx * 14;
+        const rotX = -dy * 10;
+        gsap.to(girlSvg, {
+            rotateY: rotY, rotateX: rotX,
+            duration: 0.4, ease: 'power2.out',
+            transformPerspective: 700,
+            svgOrigin: '160 210'
+        });
+        // Shift glow
+        gsap.to('.girl-glow-blob', {
+            x: dx * 20, y: dy * 14,
+            duration: 0.4, ease: 'power2.out'
+        });
+    });
+
+    girlWrap.addEventListener('mouseleave', () => {
+        gsap.to(girlSvg, {
+            rotateY: 0, rotateX: 0,
+            duration: 0.8, ease: 'elastic.out(1, 0.5)'
+        });
+        gsap.to('.girl-glow-blob', { x: 0, y: 0, duration: 0.5 });
+    });
+
+    // Click: bounce + ripple + random fun reaction
+    const reactions = ['✨ Magic!', '💻 Coding...', '🚀 Let\'s Go!', '🎯 Click!', '⚡ Charged!', '🌟 Sparkle!'];
+    let reactionIdx = 0;
+    girlWrap.addEventListener('click', (e) => {
+        // Bounce animation
+        girlWrap.classList.remove('clicked');
+        void girlWrap.offsetWidth; // reflow
+        girlWrap.classList.add('clicked');
+        setTimeout(() => girlWrap.classList.remove('clicked'), 700);
+
+        // Ripple effect
+        if (rippleZone) {
+            const rect = girlWrap.getBoundingClientRect();
+            const rx = e.clientX - rect.left;
+            const ry = e.clientY - rect.top;
+            for (let i = 0; i < 3; i++) {
+                setTimeout(() => {
+                    const r = document.createElement('div');
+                    r.className = 'ripple-circle';
+                    r.style.left = rx + 'px';
+                    r.style.top = ry + 'px';
+                    r.style.borderColor = i === 0 ? 'var(--accent)' : i === 1 ? 'var(--accent2)' : 'var(--accent3)';
+                    rippleZone.appendChild(r);
+                    setTimeout(() => r.remove(), 800);
+                }, i * 120);
+            }
+        }
+
+        // Floating reaction text
+        const reaction = document.createElement('div');
+        reaction.textContent = reactions[reactionIdx % reactions.length];
+        reactionIdx++;
+        reaction.style.cssText = `
+            position:absolute; top:20%; left:50%;
+            transform:translate(-50%,-50%);
+            font-family:var(--font-mono); font-size:0.85rem; font-weight:700;
+            color:var(--accent3); pointer-events:none; z-index:10;
+            text-shadow: 0 0 10px currentColor;
+        `;
+        girlWrap.appendChild(reaction);
+        gsap.fromTo(reaction,
+            { y: 0, opacity: 1, scale: 0.8 },
+            {
+                y: -50, opacity: 0, scale: 1.2, duration: 1.2, ease: 'power3.out',
+                onComplete: () => reaction.remove()
+            }
+        );
+
+        // Screen code flash
+        const codeLines = document.querySelectorAll('.code-line');
+        gsap.fromTo(codeLines, { opacity: 0 }, { opacity: 1, stagger: 0.08, duration: 0.15 });
+    });
+}
