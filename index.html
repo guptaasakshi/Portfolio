@@ -52,8 +52,8 @@
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#certifications" class="nav-link">Certs</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
-                <!-- <li><a href="Sakshi_Gupta_Resume_All.pdf" target="_blank" class="nav-resume-btn"><i class="fas fa-file-alt"></i>
-                        Resume</a></li> -->
+                <li><a href="resume.pdf" target="_blank" class="nav-resume-btn"><i class="fas fa-file-alt"></i>
+                        Resume</a></li>
             </ul>
         </nav>
         <div class="nav-right">
@@ -86,254 +86,35 @@
                     code</strong>.</p>
             <div class="home-cta">
                 <a href="#projects" class="btn btn-primary">View Work <i class="fas fa-arrow-right"></i></a>
-                <a href="Sakshi_Gupta_Resume_All.pdf" target="_blank" class="btn btn-outline"><i
-                        class="fas fa-download"></i> Resume</a>
+                <a href="resume.pdf" target="_blank" class="btn btn-outline"><i class="fas fa-download"></i> Resume</a>
                 <a href="#contact" class="btn btn-ghost">Let's Talk</a>
             </div>
             <div class="home-scroll-hint"><span>scroll</span>
                 <div class="scroll-line"></div>
             </div>
         </div>
-        <!-- 3D Developer Girl Illustration -->
+        <!-- Developer Girl -->
         <div class="dev-girl-wrap" id="devGirlWrap">
-            <!-- Orbit rings -->
+            <!-- Orbit rings (CSS only) -->
             <div class="orbit-ring or1"></div>
             <div class="orbit-ring or2"></div>
-            <div class="orbit-ring or3"></div>
-
-            <!-- Glow blob behind -->
+            <!-- Glow blob -->
             <div class="girl-glow-blob"></div>
-
-            <!-- Main SVG Character -->
-            <svg class="dev-girl-svg" id="devGirlSvg" viewBox="0 0 320 420" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="skinGrad" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stop-color="#f4c89a" />
-                        <stop offset="100%" stop-color="#e8a875" />
-                    </linearGradient>
-                    <linearGradient id="hairGrad" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stop-color="#2d1b00" />
-                        <stop offset="100%" stop-color="#1a0d00" />
-                    </linearGradient>
-                    <linearGradient id="shirtGrad" x1="0" y1="0" x2="1" y2="1">
-                        <stop offset="0%" stop-color="#7c6af7" />
-                        <stop offset="100%" stop-color="#5b47d6" />
-                    </linearGradient>
-                    <linearGradient id="lapGrad" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stop-color="#2a2a3e" />
-                        <stop offset="100%" stop-color="#1a1a2e" />
-                    </linearGradient>
-                    <linearGradient id="screenGrad" x1="0" y1="0" x2="1" y2="1">
-                        <stop offset="0%" stop-color="#0d1117" />
-                        <stop offset="100%" stop-color="#161b27" />
-                    </linearGradient>
-                    <linearGradient id="glassGrad" x1="0" y1="0" x2="1" y2="1">
-                        <stop offset="0%" stop-color="#a0d8f8" stop-opacity="0.7" />
-                        <stop offset="100%" stop-color="#7bb8e8" stop-opacity="0.5" />
-                    </linearGradient>
-                    <radialGradient id="chairGrad" cx="50%" cy="30%" r="60%">
-                        <stop offset="0%" stop-color="#3a3a5c" />
-                        <stop offset="100%" stop-color="#1e1e30" />
-                    </radialGradient>
-                    <filter id="glow">
-                        <feGaussianBlur stdDeviation="3" result="blur" />
-                        <feMerge>
-                            <feMergeNode in="blur" />
-                            <feMergeNode in="SourceGraphic" />
-                        </feMerge>
-                    </filter>
-                    <filter id="softShadow">
-                        <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="rgba(0,0,0,0.3)" />
-                    </filter>
-                </defs>
-
-                <!-- === CHAIR === -->
-                <ellipse cx="160" cy="385" rx="72" ry="18" fill="rgba(0,0,0,0.25)" />
-                <!-- Chair base -->
-                <rect x="140" y="355" width="40" height="30" rx="4" fill="url(#chairGrad)" />
-                <!-- Chair seat -->
-                <ellipse cx="160" cy="358" rx="68" ry="16" fill="url(#chairGrad)" />
-                <ellipse cx="160" cy="356" rx="65" ry="13" fill="#2e2e4a" />
-                <!-- Chair back -->
-                <rect x="130" y="280" width="60" height="80" rx="12" fill="url(#chairGrad)" />
-                <rect x="136" y="286" width="48" height="68" rx="10" fill="#252538" />
-
-                <!-- === BODY / HOODIE === -->
-                <!-- Torso -->
-                <path d="M110 310 Q100 340 98 365 L222 365 Q220 340 210 310 Q195 295 160 295 Q125 295 110 310Z"
-                    fill="url(#shirtGrad)" />
-                <!-- Hoodie details -->
-                <path d="M145 295 Q160 330 175 295" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" fill="none" />
-                <!-- Pocket -->
-                <rect x="134" y="330" width="52" height="28" rx="8" fill="rgba(0,0,0,0.2)" />
-                <path d="M134 344 Q160 338 186 344" stroke="rgba(255,255,255,0.1)" stroke-width="1" fill="none" />
-                <!-- Sleeves -->
-                <path d="M110 310 Q88 315 82 335 Q78 348 90 355 Q100 360 108 348 Q112 335 120 320Z"
-                    fill="url(#shirtGrad)" />
-                <path d="M210 310 Q232 315 238 335 Q242 348 230 355 Q220 360 212 348 Q208 335 200 320Z"
-                    fill="url(#shirtGrad)" />
-
-                <!-- === LAPTOP === -->
-                <!-- Laptop bottom -->
-                <rect x="95" y="348" width="130" height="12" rx="4" fill="#1a1a2a" />
-                <rect x="98" y="348" width="124" height="10" rx="3" fill="#222236" />
-                <!-- Trackpad -->
-                <rect x="140" y="351" width="40" height="6" rx="2" fill="#1a1a2e" />
-                <!-- Screen hinge area -->
-                <rect x="96" y="248" width="128" height="104" rx="8" fill="#1a1a2e" />
-                <!-- Screen bezel -->
-                <rect x="100" y="252" width="120" height="96" rx="6" fill="#111120" />
-                <!-- Screen content -->
-                <rect x="104" y="256" width="112" height="88" rx="4" fill="url(#screenGrad)" />
-
-                <!-- CODE on screen — animated lines -->
-                <g class="code-lines">
-                    <text x="110" y="272" font-family="monospace" font-size="7" fill="#7c6af7"
-                        class="code-line cl1">const sakshi = () =&gt; {</text>
-                    <text x="114" y="283" font-family="monospace" font-size="7" fill="#6af7c4" class="code-line cl2">
-                        return "developer"</text>
-                    <text x="114" y="294" font-family="monospace" font-size="7" fill="#f7926a" class="code-line cl3"> +
-                        "designer";</text>
-                    <text x="110" y="305" font-family="monospace" font-size="7" fill="#7c6af7"
-                        class="code-line cl4">}</text>
-                    <text x="110" y="318" font-family="monospace" font-size="7" fill="#fff" opacity="0.4"
-                        class="code-line cl5">// loading magic...</text>
-                    <text x="110" y="329" font-family="monospace" font-size="7" fill="#6af7c4"
-                        class="code-line cl6">run(sakshi); ✓</text>
-                </g>
-
-                <!-- Cursor blink on screen -->
-                <rect x="143" y="332" width="2" height="8" fill="#7c6af7" rx="1" class="screen-cursor" />
-
-                <!-- Screen glow reflection -->
-                <rect x="104" y="256" width="112" height="22" rx="4" fill="rgba(255,255,255,0.04)" />
-
-                <!-- === ARMS & HANDS === -->
-                <!-- Left forearm on laptop -->
-                <path d="M90 355 Q95 356 108 352 Q112 350 115 346" stroke="url(#skinGrad)" stroke-width="16"
-                    stroke-linecap="round" fill="none" />
-                <!-- Right forearm on laptop -->
-                <path d="M230 355 Q225 356 212 352 Q208 350 205 346" stroke="url(#skinGrad)" stroke-width="16"
-                    stroke-linecap="round" fill="none" />
-                <!-- Hands -->
-                <ellipse cx="116" cy="344" rx="10" ry="8" fill="url(#skinGrad)" />
-                <ellipse cx="204" cy="344" rx="10" ry="8" fill="url(#skinGrad)" />
-
-                <!-- === NECK === -->
-                <rect x="150" y="272" width="20" height="28" rx="6" fill="url(#skinGrad)" />
-
-                <!-- === HEAD === -->
-                <!-- Hair back (behind head) -->
-                <ellipse cx="160" cy="222" rx="50" ry="60" fill="url(#hairGrad)" />
-                <!-- Long hair strands -->
-                <path d="M112 230 Q100 280 108 320 Q115 340 125 345" stroke="#1a0d00" stroke-width="14"
-                    stroke-linecap="round" fill="none" />
-                <path d="M108 235 Q96 290 106 325" stroke="#241200" stroke-width="9" stroke-linecap="round"
-                    fill="none" />
-                <path d="M208 230 Q220 280 212 320 Q205 340 195 345" stroke="#1a0d00" stroke-width="14"
-                    stroke-linecap="round" fill="none" />
-
-                <!-- Head -->
-                <ellipse cx="160" cy="215" rx="44" ry="50" fill="url(#skinGrad)" filter="url(#softShadow)" />
-
-                <!-- Hair top / front -->
-                <path d="M116 200 Q118 155 160 150 Q202 155 204 200" fill="url(#hairGrad)" />
-                <!-- Hair volume -->
-                <path d="M116 200 Q114 185 120 170 Q130 155 145 150 Q160 146 175 150 Q190 155 200 170 Q206 185 204 200"
-                    fill="url(#hairGrad)" />
-                <!-- Hair highlights -->
-                <path d="M130 165 Q145 158 155 162" stroke="rgba(80,40,0,0.5)" stroke-width="2" fill="none" />
-                <!-- Hair part / detail -->
-                <path d="M155 150 Q158 162 160 170" stroke="#3a1f00" stroke-width="1.5" fill="none" />
-
-                <!-- === FACE === -->
-                <!-- Eyebrows -->
-                <path d="M138 198 Q144 194 150 196" stroke="#3d2000" stroke-width="2.5" stroke-linecap="round"
-                    fill="none" />
-                <path d="M170 196 Q176 194 182 198" stroke="#3d2000" stroke-width="2.5" stroke-linecap="round"
-                    fill="none" />
-
-                <!-- Eyes -->
-                <!-- Left eye -->
-                <ellipse cx="144" cy="208" rx="8" ry="7" fill="white" />
-                <ellipse cx="144" cy="209" rx="5" ry="5.5" fill="#1a0d00" />
-                <ellipse cx="145" cy="207" rx="3" ry="3.2" fill="#2d1500" />
-                <circle cx="146" cy="206" r="1.5" fill="white" opacity="0.9" />
-                <!-- Left eye shine -->
-                <ellipse cx="141" cy="211" r="1" fill="white" opacity="0.4" />
-                <!-- Eyelashes left -->
-                <path d="M136 207 Q134 204 135 202" stroke="#1a0d00" stroke-width="1.2" stroke-linecap="round"
-                    fill="none" />
-                <path d="M152 207 Q154 204 153 202" stroke="#1a0d00" stroke-width="1.2" stroke-linecap="round"
-                    fill="none" />
-
-                <!-- Right eye -->
-                <ellipse cx="176" cy="208" rx="8" ry="7" fill="white" />
-                <ellipse cx="176" cy="209" rx="5" ry="5.5" fill="#1a0d00" />
-                <ellipse cx="177" cy="207" rx="3" ry="3.2" fill="#2d1500" />
-                <circle cx="178" cy="206" r="1.5" fill="white" opacity="0.9" />
-                <ellipse cx="173" cy="211" r="1" fill="white" opacity="0.4" />
-                <path d="M168 207 Q166 204 167 202" stroke="#1a0d00" stroke-width="1.2" stroke-linecap="round"
-                    fill="none" />
-                <path d="M184 207 Q186 204 185 202" stroke="#1a0d00" stroke-width="1.2" stroke-linecap="round"
-                    fill="none" />
-
-                <!-- Nose -->
-                <path d="M158 218 Q156 224 158 226 Q160 228 162 226 Q164 224 162 218" stroke="#c8885a"
-                    stroke-width="1.5" fill="none" stroke-linecap="round" />
-                <!-- Nose tip -->
-                <circle cx="160" cy="226" r="2.5" fill="rgba(200,120,80,0.2)" />
-
-                <!-- Mouth — smile -->
-                <path d="M150 235 Q160 243 170 235" stroke="#b86a4a" stroke-width="2" stroke-linecap="round"
-                    fill="none" />
-                <!-- Lips -->
-                <path d="M152 233 Q156 230 160 231 Q164 230 168 233" stroke="#c87858" stroke-width="1.5" fill="none"
-                    stroke-linecap="round" />
-
-                <!-- Cheek blush -->
-                <ellipse cx="132" cy="225" rx="10" ry="6" fill="rgba(255,140,120,0.2)" />
-                <ellipse cx="188" cy="225" rx="10" ry="6" fill="rgba(255,140,120,0.2)" />
-
-                <!-- === GLASSES === -->
-                <rect x="133" y="202" width="22" height="15" rx="6" fill="url(#glassGrad)" stroke="#5b47d6"
-                    stroke-width="1.5" />
-                <rect x="165" y="202" width="22" height="15" rx="6" fill="url(#glassGrad)" stroke="#5b47d6"
-                    stroke-width="1.5" />
-                <!-- Bridge -->
-                <path d="M155 209 Q160 207 165 209" stroke="#5b47d6" stroke-width="1.5" fill="none" />
-                <!-- Arms -->
-                <line x1="133" y1="208" x2="116" y2="212" stroke="#5b47d6" stroke-width="1.5" stroke-linecap="round" />
-                <line x1="187" y1="208" x2="204" y2="212" stroke="#5b47d6" stroke-width="1.5" stroke-linecap="round" />
-                <!-- Lens reflection glare -->
-                <path d="M137 205 Q139 204 141 205" stroke="white" stroke-width="1.2" stroke-linecap="round"
-                    opacity="0.7" />
-                <path d="M169 205 Q171 204 173 205" stroke="white" stroke-width="1.2" stroke-linecap="round"
-                    opacity="0.7" />
-
-                <!-- Hoodie collar / hood detail -->
-                <path d="M130 295 Q135 285 145 280 Q155 275 160 276 Q165 275 175 280 Q185 285 190 295"
-                    stroke="rgba(255,255,255,0.15)" stroke-width="2" fill="none" />
-
-                <!-- Headphones on head -->
-                <path d="M116 210 Q112 195 118 182 Q128 165 145 158" stroke="#3a3a5c" stroke-width="6"
-                    stroke-linecap="round" fill="none" />
-                <path d="M204 210 Q208 195 202 182 Q192 165 175 158" stroke="#3a3a5c" stroke-width="6"
-                    stroke-linecap="round" fill="none" />
-                <!-- Headphone pads -->
-                <ellipse cx="113" cy="213" rx="9" ry="11" fill="#2e2e4a" />
-                <ellipse cx="113" cy="213" rx="6" ry="8" fill="url(#shirtGrad)" />
-                <ellipse cx="207" cy="213" rx="9" ry="11" fill="#2e2e4a" />
-                <ellipse cx="207" cy="213" rx="6" ry="8" fill="url(#shirtGrad)" />
-
-                <!-- Small star / sparkle near head -->
-                <text x="95" y="175" font-size="14" fill="#6af7c4" class="sparkle-star ss1" opacity="0.8">✦</text>
-                <text x="218" y="185" font-size="10" fill="#f7926a" class="sparkle-star ss2" opacity="0.7">✧</text>
-                <text x="85" y="250" font-size="8" fill="#7c6af7" class="sparkle-star ss3" opacity="0.6">★</text>
-            </svg>
-
-            <!-- Floating code tags around the girl -->
+            <!-- Photo card -->
+            <div class="girl-photo-card" id="girlPhotoCard">
+                <div class="girl-photo-frame">
+                    <img src="src/girl.png" alt="Developer Girl" class="girl-cartoon-img" id="girlCartoonImg"
+                        draggable="false" />
+                    <div class="girl-screen-glow"></div>
+                </div>
+                <div class="girl-typing-indicator">
+                    <span class="typing-dot"></span>
+                    <span class="typing-dot"></span>
+                    <span class="typing-dot"></span>
+                    <span class="girl-typing-text">coding...</span>
+                </div>
+            </div>
+            <!-- Floating code tags -->
             <div class="float-tag ft1"><span class="tag-bracket">&lt;</span>developer<span
                     class="tag-bracket">/&gt;</span></div>
             <div class="float-tag ft2">{ ML model }</div>
@@ -341,14 +122,12 @@
             <div class="float-tag ft4">Python 🐍</div>
             <div class="float-tag ft5">const girl = awesome</div>
             <div class="float-tag ft6">npm run build ✓</div>
-
-            <!-- Floating skill bubbles -->
+            <!-- Skill bubbles -->
             <div class="skill-bubble sb1">HTML</div>
             <div class="skill-bubble sb2">CSS</div>
             <div class="skill-bubble sb3">JS</div>
             <div class="skill-bubble sb4">AI</div>
-
-            <!-- Click ripple container -->
+            <!-- Click ripple -->
             <div class="click-ripple-zone" id="clickRipple"></div>
         </div>
     </section>
@@ -362,25 +141,28 @@
             </div>
             <div class="about-grid">
                 <div class="about-visual">
-                    <div class="about-avatar">
-                        <!-- Photo instead of initials -->
-                        <img src="src/Profile.jpeg" alt="Sakshi Gupta" class="about-photo">
-
-                        <!-- Keep the glowing rings for nice effect -->
+                    <div class="about-avatar" id="aboutAvatar">
+                        <div class="avatar-photo-wrap" id="avatarPhotoWrap">
+                            <img src="" alt="Sakshi" class="avatar-photo" id="avatarPhoto" style="display:none" />
+                            <div class="avatar-initials" id="avatarInitials">SG</div>
+                            <label class="avatar-upload-btn" for="avatarFileInput" title="Upload Profile Photo">
+                                <i class="fas fa-camera"></i>
+                            </label>
+                            <input type="file" id="avatarFileInput" accept="image/*" style="display:none" />
+                        </div>
                         <div class="avatar-ring r1"></div>
                         <div class="avatar-ring r2"></div>
                         <div class="avatar-ring r3"></div>
                     </div>
                     <div class="about-stats">
-                        <div class="stat-item"><span class="stat-num" data-target="8.88" data-float="true">0</span><span
+                        <div class="stat-item"><span class="stat-num" data-target="8.82" data-float="true">0</span><span
                                 class="stat-label">CGPA</span></div>
                         <div class="stat-item"><span class="stat-num" data-target="14" data-suffix="+">0</span><span
                                 class="stat-label">Projects</span></div>
-                        <div class="stat-item"><span class="stat-num" data-target="6" data-suffix="+">0</span><span
+                        <div class="stat-item"><span class="stat-num" data-target="4" data-suffix="+">0</span><span
                                 class="stat-label">Certs</span></div>
                     </div>
-                    <a href="Sakshi_Gupta_Resume_All.pdf" target="_blank" class="resume-download-btn"><i
-                            class="fas fa-file-pdf"></i>
+                    <a href="resume.pdf" target="_blank" class="resume-download-btn"><i class="fas fa-file-pdf"></i>
                         View Resume</a>
                 </div>
                 <div class="about-content">
@@ -532,7 +314,7 @@
                         <h3>Computer Science & Engineering</h3>
                         <p class="timeline-inst">Shobhit Institute Of Engineering & Technology</p>
                         <div class="timeline-meta"><span class="meta-tag">2023 — Present</span><span
-                                class="meta-tag grade">CGPA: 8.88</span></div>
+                                class="meta-tag grade">CGPA: 8.82</span></div>
                         <p>Specializing in Web Development & Data Science with focus on modern technologies and
                             real-world projects.</p>
                     </div>
@@ -951,7 +733,7 @@
                                 <p>Download my latest CV</p>
                             </div>
                         </div>
-                        <a href="Sakshi_Gupta_Resume_All.pdf" target="_blank" class="btn btn-primary resume-dl-btn"><i
+                        <a href="resume.pdf" target="_blank" class="btn btn-primary resume-dl-btn"><i
                                 class="fas fa-download"></i> Download</a>
                     </div>
                     <div class="socials">
@@ -966,13 +748,266 @@
         </div>
     </section>
 
-    <footer class="footer">
-        <p>Designed & Built with ❤️ by <span>Sakshi Gupta</span> &copy; 2026</p>
-    </footer>
+    <!-- Neural BG Canvas -->
+    <canvas id="neural-bg"></canvas>
 
+    <!-- Sakshi AI Chatbot Orb -->
+    <div class="sakshi-orb" id="sakshiOrb">
+        <div class="sakshi-orb-glow"></div>
+        <div class="sakshi-orb-avatar">
+            <img src="src/girl.png" alt="Sakshi" class="orb-girl-img" />
+        </div>
+        <span class="sakshi-orb-label">Talk with Sakshi</span>
+        <div class="orb-online-dot"></div>
+    </div>
+
+    <!-- Sakshi AI Chatbot Modal -->
+    <div class="sakshi-chat-modal" id="sakshiChatModal">
+        <div class="chat-modal-backdrop" id="chatBackdrop"></div>
+        <div class="chat-modal-box" id="chatModalBox">
+            <!-- Chat Header -->
+            <div class="chat-header">
+                <div class="chat-header-avatar">
+                    <img src="src/girl.png" alt="Sakshi" />
+                    <div class="chat-online-dot"></div>
+                </div>
+                <div class="chat-header-info">
+                    <h3>Sakshi Gupta</h3>
+                    <span class="chat-status" id="chatStatus"><span class="status-dot"></span> Online · Web Dev & Data
+                        Science</span>
+                </div>
+                <div class="chat-header-actions">
+                    <button class="chat-action-btn" id="openAnalyzer" title="Portfolio Analyzer">
+                        <i class="fas fa-chart-bar"></i>
+                    </button>
+                    <button class="chat-action-btn" id="closeChatModal" title="Close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Chat Messages -->
+            <div class="chat-messages" id="chatMessages">
+                <div class="chat-date-divider"><span>Today</span></div>
+                <div class="chat-msg sakshi-msg">
+                    <div class="msg-avatar"><img src="src/girl.png" alt="S" /></div>
+                    <div class="msg-bubble">
+                        <p>Hi! I'm Sakshi 👋 I'm a Web Developer & Data Science intern. Ask me anything about my
+                            projects, skills, or experience!</p>
+                        <span class="msg-time">Just now</span>
+                    </div>
+                </div>
+                <div class="chat-suggestions" id="chatSuggestions">
+                    <button class="sugg-btn">🚀 Tell me about your projects</button>
+                    <button class="sugg-btn">💻 What skills do you have?</button>
+                    <button class="sugg-btn">🎓 Your education background?</button>
+                    <button class="sugg-btn">📧 How to contact you?</button>
+                </div>
+            </div>
+            <!-- Chat Input -->
+            <div class="chat-input-area">
+                <div class="chat-input-wrap">
+                    <input type="text" id="chatInput" placeholder="Ask Sakshi anything..." autocomplete="off"
+                        maxlength="500" />
+                    <button class="chat-send-btn" id="chatSendBtn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <p class="chat-powered">Powered by Claude AI · <span style="color:var(--accent3)">Sakshi AI Twin</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Analyzer Modal -->
+    <div class="analyzer-modal" id="analyzerModal">
+        <div class="analyzer-backdrop" id="analyzerBackdrop"></div>
+        <div class="analyzer-box" id="analyzerBox">
+            <div class="analyzer-header">
+                <div class="analyzer-title">
+                    <i class="fas fa-chart-line" style="color:var(--accent)"></i>
+                    <h2>Portfolio Analyzer</h2>
+                    <span class="analyzer-badge">AI-Powered</span>
+                </div>
+                <button class="chat-action-btn" id="closeAnalyzer"><i class="fas fa-times"></i></button>
+            </div>
+            <!-- Loading state -->
+            <div class="analyzer-loading" id="analyzerLoading">
+                <div class="analyzer-scan-anim">
+                    <div class="scan-bar"></div>
+                    <img src="src/girl.png" alt="" class="scan-girl" />
+                </div>
+                <p>Analyzing Sakshi's portfolio...</p>
+                <div class="loading-steps" id="loadingSteps">
+                    <div class="load-step active" data-step="0">🔍 Scanning projects...</div>
+                    <div class="load-step" data-step="1">📊 Calculating skill coverage...</div>
+                    <div class="load-step" data-step="2">🎯 Evaluating career readiness...</div>
+                    <div class="load-step" data-step="3">✅ Generating insights...</div>
+                </div>
+            </div>
+            <!-- Dashboard -->
+            <div class="analyzer-dashboard" id="analyzerDashboard" style="display:none">
+                <div class="dash-overview">
+                    <div class="dash-score-card">
+                        <div class="score-ring" id="scoreRing">
+                            <svg viewBox="0 0 120 120">
+                                <circle cx="60" cy="60" r="50" fill="none" stroke="var(--border)" stroke-width="8" />
+                                <circle cx="60" cy="60" r="50" fill="none" stroke="url(#scoreGrad)" stroke-width="8"
+                                    stroke-dasharray="314" stroke-dashoffset="40" stroke-linecap="round"
+                                    transform="rotate(-90 60 60)" class="score-arc" />
+                                <defs>
+                                    <linearGradient id="scoreGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#7c6af7" />
+                                        <stop offset="100%" stop-color="#6af7c4" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            <div class="score-value">87<span>%</span></div>
+                            <div class="score-label">Portfolio Score</div>
+                        </div>
+                        <div class="score-breakdown">
+                            <div class="sb-item"><span class="sb-label">Innovation</span>
+                                <div class="sb-bar">
+                                    <div class="sb-fill"
+                                        style="width:92%;background:linear-gradient(90deg,#7c6af7,#6af7c4)"></div>
+                                </div><span class="sb-val">92%</span>
+                            </div>
+                            <div class="sb-item"><span class="sb-label">Skill Range</span>
+                                <div class="sb-bar">
+                                    <div class="sb-fill"
+                                        style="width:88%;background:linear-gradient(90deg,#f7926a,#ffd700)"></div>
+                                </div><span class="sb-val">88%</span>
+                            </div>
+                            <div class="sb-item"><span class="sb-label">Project Depth</span>
+                                <div class="sb-bar">
+                                    <div class="sb-fill"
+                                        style="width:85%;background:linear-gradient(90deg,#6af7c4,#7c6af7)"></div>
+                                </div><span class="sb-val">85%</span>
+                            </div>
+                            <div class="sb-item"><span class="sb-label">Career Ready</span>
+                                <div class="sb-bar">
+                                    <div class="sb-fill"
+                                        style="width:82%;background:linear-gradient(90deg,#61dafb,#7c6af7)"></div>
+                                </div><span class="sb-val">82%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Stats Row -->
+                <div class="dash-stats-row">
+                    <div class="dash-stat">
+                        <div class="ds-icon" style="background:rgba(124,106,247,0.15)"><i class="fas fa-code"
+                                style="color:#7c6af7"></i></div>
+                        <div><span class="ds-num">14</span><span class="ds-label">Live Projects</span></div>
+                    </div>
+                    <div class="dash-stat">
+                        <div class="ds-icon" style="background:rgba(106,247,196,0.15)"><i class="fas fa-brain"
+                                style="color:#6af7c4"></i></div>
+                        <div><span class="ds-num">24+</span><span class="ds-label">Technologies</span></div>
+                    </div>
+                    <div class="dash-stat">
+                        <div class="ds-icon" style="background:rgba(247,146,106,0.15)"><i class="fas fa-graduation-cap"
+                                style="color:#f7926a"></i></div>
+                        <div><span class="ds-num">8.82</span><span class="ds-label">CGPA</span></div>
+                    </div>
+                    <div class="dash-stat">
+                        <div class="ds-icon" style="background:rgba(97,218,251,0.15)"><i class="fas fa-certificate"
+                                style="color:#61dafb"></i></div>
+                        <div><span class="ds-num">4+</span><span class="ds-label">Certifications</span></div>
+                    </div>
+                </div>
+                <!-- Skill Radar -->
+                <div class="dash-two-col">
+                    <div class="dash-card">
+                        <h4>Skill Distribution</h4>
+                        <div class="skill-radar-wrap">
+                            <canvas id="skillRadar" width="220" height="220"></canvas>
+                        </div>
+                    </div>
+                    <div class="dash-card">
+                        <h4>AI Insights</h4>
+                        <div class="ai-insights" id="aiInsights">
+                            <div class="insight-item good"><i class="fas fa-check-circle"></i><span>Strong full-stack
+                                    foundation with React & Node.js</span></div>
+                            <div class="insight-item good"><i class="fas fa-check-circle"></i><span>Impressive ML
+                                    portfolio: AeroSense, ArtifyX, EcoVision</span></div>
+                            <div class="insight-item good"><i class="fas fa-check-circle"></i><span>Top 5% in Data
+                                    Science for undergrads</span></div>
+                            <div class="insight-item suggest"><i class="fas fa-lightbulb"></i><span>Consider adding
+                                    TypeScript to skill stack</span></div>
+                            <div class="insight-item suggest"><i class="fas fa-lightbulb"></i><span>Deploy more ML
+                                    models publicly for visibility</span></div>
+                        </div>
+                        <p id="aiSummary"
+                            style="margin-top:14px;font-size:.82rem;color:var(--text-muted);line-height:1.6;font-style:italic;border-top:1px solid var(--border);padding-top:12px;">
+                        </p>
+                    </div>
+                </div>
+                <!-- Project Type Chart -->
+                <div class="dash-card full-width">
+                    <h4>Project Categories</h4>
+                    <div class="proj-chart">
+                        <div class="proj-bar-item"><span class="pbi-label">Web Dev</span>
+                            <div class="pbi-track">
+                                <div class="pbi-fill"
+                                    style="width:64%;background:linear-gradient(90deg,#7c6af7,#9d8fff)"></div>
+                            </div><span class="pbi-val">9 projects</span>
+                        </div>
+                        <div class="proj-bar-item"><span class="pbi-label">ML / AI</span>
+                            <div class="pbi-track">
+                                <div class="pbi-fill"
+                                    style="width:36%;background:linear-gradient(90deg,#6af7c4,#3dd6a8)"></div>
+                            </div><span class="pbi-val">5 projects</span>
+                        </div>
+                        <div class="proj-bar-item"><span class="pbi-label">React Apps</span>
+                            <div class="pbi-track">
+                                <div class="pbi-fill"
+                                    style="width:28%;background:linear-gradient(90deg,#61dafb,#21a8cb)"></div>
+                            </div><span class="pbi-val">4 apps</span>
+                        </div>
+                        <div class="proj-bar-item"><span class="pbi-label">Data Science</span>
+                            <div class="pbi-track">
+                                <div class="pbi-fill"
+                                    style="width:22%;background:linear-gradient(90deg,#f7926a,#e07050)"></div>
+                            </div><span class="pbi-val">3 studies</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Career Recommendation -->
+                <div class="dash-card full-width career-card">
+                    <h4>🎯 Career Path Recommendation</h4>
+                    <div class="career-paths">
+                        <div class="career-path best"><span class="cp-rank">🥇 Best Fit</span><strong>Full-Stack ML
+                                Engineer</strong>
+                            <p>React + Python ML pipeline expertise makes this a perfect match</p><span
+                                class="cp-score">96% match</span>
+                        </div>
+                        <div class="career-path"><span class="cp-rank">🥈 Strong Fit</span><strong>Frontend
+                                Developer</strong>
+                            <p>Excellent UI skills with React, GSAP, responsive design</p><span class="cp-score">91%
+                                match</span>
+                        </div>
+                        <div class="career-path"><span class="cp-rank">🥉 Good Fit</span><strong>Data Scientist</strong>
+                            <p>ML models + analytics dashboard experience is solid</p><span class="cp-score">85%
+                                match</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="dash-footer">
+                    <button class="btn btn-primary" id="chatFromAnalyzer"><i class="fas fa-comments"></i> Ask Sakshi
+                        AI</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>Designed & Built with ❤️ by <span>Sakshi Gupta</span> &copy; 2024</p>
+    </footer>
+    <!-- Three.js removed, using photo-based illustration -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+    <script src="api.js"></script>
     <script src="script.js"></script>
 </body>
 
