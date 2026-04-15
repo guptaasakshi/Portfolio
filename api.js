@@ -1,83 +1,52 @@
-// =============================================
+// ============================================================
 // api.js — Sakshi Portfolio · Frontend API Layer
-// =============================================
+// Backend: FastAPI at localhost:8000
+// Routes:  POST /api/chat  |  POST /api/analyze  |  GET /health
+// ============================================================
 
 const API_CONFIG = {
     BASE_URL: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
         ? 'http://localhost:8000'
-        : 'https://your-backend-url.com',
+        : 'https://your-backend-url.com',   // ← production URL yahan replace karo
     TIMEOUT_MS: 30000,
 };
 
-// ─── Generic fetch wrapper ───────────────────────
+// ─── Generic fetch with timeout ──────────────────────────────────
 async function apiFetch(endpoint, options = {}) {
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), API_CONFIG.TIMEOUT_MS);
-
+    const timer = setTimeout(() => controller.abort(), API_CONFIG.TIMEOUT_MS);
     try {
         const res = await fetch(`${API_CONFIG.BASE_URL}${endpoint}`, {
             ...options,
             signal: controller.signal,
-            headers: {
-                'Content-Type': 'application/json',
-                ...(options.headers || {}),
-            },
+            headers: { 'Content-Type': 'application/json', ...(options.headers || {}) },
         });
-
-        clearTimeout(timeout);
-
+        clearTimeout(timer);
         if (!res.ok) {
-            const err = await res.json().catch(() => ({ detail: 'Unknown error' }));
+            const err = await res.json().catch(() => ({ detail: `HTTP ${res.status}` }));
             throw new Error(err.detail || `HTTP ${res.status}`);
         }
-
         return await res.json();
     } catch (err) {
-        clearTimeout(timeout);
-        if (err.name === 'AbortError') throw new Error('Request timed out. Please try again.');
+        clearTimeout(timer);
+        if (err.name === 'AbortError') throw new Error('Request timed out. Is backend running?');
         throw err;
     }
 }
 
-// ─── CHATBOT API ───────────────────────────────
+// ─── CHATBOT API ─────────────────────────────────────────────────
+// Backend route: POST /api/chat  (main.py mein /api prefix set hai)
 const ChatAPI = {
     async sendMessage(message, history = []) {
-        return apiFetch('/api/chat', {   // ✅ FIXED
+        return apiFetch('/api/chat', {
             method: 'POST',
             body: JSON.stringify({ message, history }),
         });
-    },
-
-    async streamMessage(message, history = [], onChunk) {
-        const res = await fetch(`${API_CONFIG.BASE_URL}/api/chat/stream`, { // ✅ FIXED
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ message, history }),
-        });
-
-        if (!res.ok || !res.body) throw new Error('Streaming not available');
-
-        const reader = res.body.getReader();
-        const decoder = new TextDecoder();
-
-        while (true) {
-            const { done, value } = await reader.read();
-            if (done) break;
-            const chunk = decoder.decode(value, { stream: true });
-
-            chunk.split('\n').forEach(line => {
-                if (line.startsWith('data: ')) {
-                    try {
-                        const data = JSON.parse(line.slice(6));
-                        if (data.text) onChunk(data.text);
-                    } catch { }
-                }
-            });
-        }
     },
 };
 
-// ─── ANALYZER API ──────────────────────────────
+// ─── ANALYZER API ────────────────────────────────────────────────
+// Backend route: POST /api/analyze
 const AnalyzerAPI = {
     async analyze() {
         const portfolioData = {
@@ -120,21 +89,18 @@ const AnalyzerAPI = {
             linkedin: 'linkedin.com/in/sakshi-gupta-31a476291',
         };
 
-        return apiFetch('/api/analyze', {   // ✅ FIXED
+        const result = await apiFetch('/api/analyze', {
             method: 'POST',
             body: JSON.stringify(portfolioData),
         });
-    },
 
-    async skillGap(targetRole) {
-        return apiFetch('/api/analyze/skill-gap', {  // ✅ FIXED
-            method: 'POST',
-            body: JSON.stringify({ target_role: targetRole }),
-        });
+        // Backend returns { success: true, data: {...} }
+        return result.data || result;
     },
 };
 
-// ─── Health check ──────────────────────────────
+// ─── Health Check ────────────────────────────────────────────────
+// Backend route: GET /health  (NO /api prefix — direct route)
 const HealthAPI = {
     async ping() {
         try {
@@ -146,7 +112,6 @@ const HealthAPI = {
     }
 };
 
-// Export
 window.ChatAPI = ChatAPI;
 window.AnalyzerAPI = AnalyzerAPI;
 window.HealthAPI = HealthAPI;
